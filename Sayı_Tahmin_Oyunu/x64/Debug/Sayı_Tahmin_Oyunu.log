@@ -1,0 +1,3 @@
+﻿  Sayı_Tahmin_Oyunu.cpp
+C:\Users\yusuf\OneDrive\Masaüstü\c++\Sayı_Tahmin_Oyunu\Sayı_Tahmin_Oyunu\Sayı_Tahmin_Oyunu.cpp(7,25): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Sayı_Tahmin_Oyunu.vcxproj -> C:\Users\yusuf\OneDrive\Masaüstü\c++\Sayı_Tahmin_Oyunu\x64\Debug\Sayı_Tahmin_Oyunu.exe
