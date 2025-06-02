@@ -1,17 +1,28 @@
 ﻿#include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <string>  
+#include <string>
+
+void ekrantemizleme() {
+#ifdef _WIN32
+    system("cls");  
+#else
+    system("clear"); 
+#endif
+}
 
 int main() {
-    std::srand(std::time(0));
+    std::srand(std::time(0)); 
 
     char tekrarOyna;
-    int enIyiSkor = 9999;
+    int enIyiSkor = 9999; 
 
     do {
+        ekrantemizleme(); 
+        auto baslangicZamani = std::time(0); 
+
         int maxSayi;
-        int maxDeneme = 9999;
+        int maxDeneme = 9999; 
         int gizliSayi;
         int denemeSayisi = 0;
         int zorluk;
@@ -31,7 +42,7 @@ int main() {
         }
         else if (zorluk == 3) {
             maxSayi = 500;
-            maxDeneme = 5;
+            maxDeneme = 5; 
         }
         else {
             std::cout << "Gecersiz secim! Orta mod secildi.\n";
@@ -46,13 +57,18 @@ int main() {
         bool bildiMi = false;
 
         while (denemeSayisi < maxDeneme) {
-            std::cout << "Tahminini gir (veya 'skor' yaz): ";
+            std::cout << "Tahminini gir (veya 'skor' ya da 'quit' yaz): ";
             std::string girdi;
             std::getline(std::cin, girdi);
 
+            if (girdi == "quit") {
+                std::cout << "Oyundan cikiliyor...\n";
+                return 0; 
+            }
+
             if (girdi == "skor") {
                 std::cout << "Su ana kadarki en iyi skorun: " << enIyiSkor << " deneme\n";
-                continue; // tekrar sor tahmin
+                continue; 
             }
 
             int tahmin;
@@ -87,6 +103,8 @@ int main() {
             }
         }
 
+        auto bitisZamani = std::time(0); 
+        std::cout << "Oyun suresi: " << (bitisZamani - baslangicZamani) << " saniyede bildiniz\n";
         std::cout << "Su ana kadarki en iyi skorun: " << enIyiSkor << " deneme\n";
 
         std::cout << "Tekrar oynamak ister misin? (e/h): ";
